@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class CheckOut
+{
+    public static void main(String[] args)
+    {
+        Scanner in = new Scanner(System.in);
+
+        double itemPrice;
+        double total = 0.0;
+        boolean moreItems = true;
+
+        while(moreItems)
+        {
+            itemPrice = SafeInput.getRangedDouble(in, "Enter item price", 0.50, 99.99);
+
+            total = total + itemPrice;
+
+
+            moreItems = SafeInput.getYNConfirm(in, "Do you have another item?");
+        }
+
+        System.out.println("\nTotal cost: $" + total);
+    }
+}
